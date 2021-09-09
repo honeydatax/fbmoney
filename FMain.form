@@ -1,0 +1,10 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,21.4286)
+  Background = Color.DarkMagenta
+  Foreground = Color.White
+  { Label1 Label
+    MoveScaled(2,2,37,8)
+  }
+}

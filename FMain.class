@@ -1,0 +1,39 @@
+' Gambas class file
+
+Public p As Process
+Const pgr As String = "sh -c 'unzip "
+Const strs As String = "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+
+Public Sub Form_Open()
+  Dim f As File
+  Dim s As String
+  Dim cs As Compress
+  s = "/home/pi/inunzip/interfaceunzip/new.zip"
+  's = Args[1]
+  Label1.Caption = Application.Dir
+  Form.Show()
+  Form.Refresh()
+  If Not Exist(s) Then 
+    Label1.Caption = "file dont exists"
+    Goto exitss
+  End If
+  Label1.Caption = pgr & s & "'" 
+  p = Shell pgr & s & "'" For Read Write As "p"
+  Print #p, strs 
+  exitss:
+End
+
+Sub p_read()
+  Dim s As String
+  s = Read #Last, -256
+  If Trim(s) <> "" Then Label1.Caption = s
+End
+
+Public Sub form_Close()
+  p.Kill()
+  p.Close
+  Close #p
+  Finally
+  Catch
+End
+
