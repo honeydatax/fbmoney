@@ -9,7 +9,7 @@ Public Sub Form_Open()
   Dim s As String
   Dim cs As Compress
   s = "/home/pi/inunzip/interfaceunzip/new.zip"
-  's = Args[1]
+  s = Args[1]
   Label1.Caption = Application.Dir
   Form.Show()
   Form.Refresh()
@@ -27,6 +27,7 @@ Sub p_read()
   Dim s As String
   s = Read #Last, -256
   If Trim(s) <> "" Then Label1.Caption = s
+  Form.Refresh()
 End
 
 Public Sub form_Close()
